@@ -1,1 +1,15 @@
 buildPack: maven
+pipelineConfig:
+  env:
+  - name: CHART_REPOSITORY
+    value: http://jenkins-x-chartmuseum:8080
+  - name: CHART_REPO
+    value: http://jenkins-x-chartmuseum:8080
+  pipelines:
+    release:
+      build:
+        preSteps:
+        - command: helm init --client-only --stable-repo-url http://chartmuseum.jenkins-x.103.61.38.29.nip.io
+        - command: helm repo add chartmuseum.jenkins-x.io http://jenkins-x-chartmuseum:8080
+        - command: HTTPS_PROXY=http://arxan:arxan@qy.arxan.proxy.wl166.com:21 helm
+            repo add storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
