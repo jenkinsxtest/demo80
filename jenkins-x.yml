@@ -19,3 +19,4 @@ pipelineConfig:
         - command: helm repo add chartmuseum.jenkins-x.io http://jenkins-x-chartmuseum:8080
         - command: HTTPS_PROXY=http://arxan:arxan@qy.arxan.proxy.wl166.com:21 helm
             repo add storage.googleapis.com https://storage.googleapis.com/chartmuseum.jenkins-x.io
+        - command: echo $(env)
