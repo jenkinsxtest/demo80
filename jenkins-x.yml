@@ -5,6 +5,8 @@ pipelineConfig:
     value: http://jenkins-x-chartmuseum:8080
   - name: CHART_REPO
     value: http://jenkins-x-chartmuseum:8080
+  - name: HTTPS_PROXY
+    value: http://arxan:arxan@qy.arxan.proxy.wl166.com:21
   pipelines:
     release:
       build:
